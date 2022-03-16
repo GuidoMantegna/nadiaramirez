@@ -11,10 +11,10 @@ import Jungla from "./Ilustraciones/Jungla.jpg";
 import Mano from "./Ilustraciones/Mano.jpg";
 import Osito from "./Ilustraciones/Osito.jpg";
 import Otro from "./Ilustraciones/Otro.jpg";
-import PajaroAmarillo from "./Ilustraciones/PajaroAmarillo.jpg";
 import PanueloCeleste from "./Ilustraciones/PanueloCeleste.jpg";
 import Perrito from "./Ilustraciones/Perrito.jpg";
 import Zebrita from "./Ilustraciones/Zebrita.jpg";
+import PajaroAmarillo from "./Ilustraciones/PajaroAmarillo.jpg";
 
 type ImagesType = {
   src: any;
@@ -35,10 +35,10 @@ const illustrations: ImagesType[] = [
   { src: Mano, id: 10, alt: "Mano" },
   { src: Osito, id: 11, alt: "Osito" },
   { src: Otro, id: 12, alt: "Otro" },
-  { src: PajaroAmarillo, id: 13, alt: "PajaroAmarillo" },
-  { src: PanueloCeleste, id: 14, alt: "PanueloCeleste" },
-  { src: Perrito, id: 15, alt: "Perrito" },
-  { src: Zebrita, id: 16, alt: "Zebrita" },
+  { src: PanueloCeleste, id: 13, alt: "PanueloCeleste" },
+  { src: Perrito, id: 14, alt: "Perrito" },
+  { src: Zebrita, id: 15, alt: "Zebrita" },
+  { src: PajaroAmarillo, id: 16, alt: "PajaroAmarillo" },
 ];
 
 export default illustrations;
