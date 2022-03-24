@@ -34,8 +34,19 @@ const Sidebar: NextComponentType = () => {
 
   return (
     <>
-
-      <VStack justify={{ base: "center", lg: "space-between" }} align='end' h={{ base: "100%", md: '80vh' }} /*p='0 20px'*/ pos='fixed' spacing='0px'>
+      <VStack
+        // justify={{ base: "center", lg: "space-between" }}
+        justify="center"
+        align="end"
+        mt="10vh"
+        // h={{ base: "100%", md: "80vh" }}
+        h="80vh"
+        pos="fixed"
+        spacing="0px"
+        color="blackAlpha.700"
+        fontSize={{ md: "xl", xl: "2xl" }}
+        fontWeight="hairline"
+      >
         <Box w="200px" mb="75px">
           <Link href="/">
             <a>
@@ -43,51 +54,27 @@ const Sidebar: NextComponentType = () => {
             </a>
           </Link>
         </Box>
-        <VStack>
-        <Link href="/illustration">
-          <a>
-            <Text
-              color="blackAlpha.700"
-              fontSize={{ md: '2xl', xl: '3xl' }}
-              fontWeight="hairline"
-            >
-              illustration
-            </Text>
-          </a>
-        </Link>
-        <Link href="/patterns">
-          <a>
-            <Text
-              color="blackAlpha.700"
-              fontSize={{ md: '2xl', xl: '3xl' }}
-              fontWeight="hairline"
-            >
-              patterns
-            </Text>
-          </a>
-        </Link>
-        <Link href="/about">
-          <a>
-            <Text
-              color="blackAlpha.700"
-              fontSize={{ md: '2xl', xl: '3xl' }}
-              fontWeight="hairline"
-            >
-              about
-            </Text>
-          </a>
-        </Link>
-        <Link href="/contact">
-          <a>
-            <Text
-              color="blackAlpha.700"
-              fontSize={{ md: '2xl', xl: '3xl' }}
-              fontWeight="hairline"
-            >
-              contact
-            </Text>
-          </a>
-        </Link>
+        <VStack align='flex-end'>
+          <Link href="/illustration">
+            <a>
+              <Text>illustration</Text>
+            </a>
+          </Link>
+          <Link href="/patterns">
+            <a>
+              <Text>patterns</Text>
+            </a>
+          </Link>
+          <Link href="/about">
+            <a>
+              <Text>about</Text>
+            </a>
+          </Link>
+          <Link href="/contact">
+            <a>
+              <Text>contact</Text>
+            </a>
+          </Link>
         </VStack>
       </VStack>
     </>

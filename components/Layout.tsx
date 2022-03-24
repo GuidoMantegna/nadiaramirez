@@ -23,7 +23,7 @@ const Layout: NextComponentType = ({ children }) => {
           pos={{ base: "fixed" }}
           left={{ base: "0px" }}
           zIndex={1}
-          justify="space-between"
+          justify={{ base: "space-between", md: "flex-end" }}
           align="center"
           w="100%"
           minH={{ base: "10vh" }}
@@ -38,17 +38,18 @@ const Layout: NextComponentType = ({ children }) => {
           display={{ base: "none", md: "flex" }}
           justify="center"
           mt={{ lg: "10vh" }}
+          p={{ md: '0 20px', lg: "0 40px" }}
         >
           <Sidebar />
         </Flex>
         <Center
           mt={{ base: "10vh" }}
-          flex={{ base: "2", lg: "3" }}
+          flex={{ base: "2", lg: "3", xl: "4" }}
           p="0 15px"
           flexDirection="column"
         >
           {children}
-          <Flex h="10vh" w="100%">
+          <Flex minHeight="10vh" w="100%" p="25px 0 20px">
             <Footer />
           </Flex>
         </Center>

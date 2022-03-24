@@ -21,42 +21,35 @@ import {
   useMediaQuery,
   useDisclosure,
 } from "@chakra-ui/react";
-import { HamburgerIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
+import { HamburgerIcon } from "@chakra-ui/icons";
 import Image from "next/image";
 import Link from "next/link";
-import na from "../public/assets/na.png";
 import nadiaRamirez from "../public/assets/nadia-ramirez-negro.png";
-import nadia from "../styles/na-negro.png";
+import LanColor from "./LanColor";
 
 const Navbar: NextComponentType = () => {
-  const [isMobile] = useMediaQuery(["(max-width: 768px)"]);
+  const [isMD] = useMediaQuery(["(min-width: 768px)"]);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef(null);
 
   return (
-    // <Flex
-    //   // pos="fixed"
-    //   top={isMobile ? "0" : "40vh"}
-    //   right="0"
-    //   flexDirection="column"
-    //   align="flex-end"
-    //   bgColor="white"
-    //   zIndex={1}
-    //   p="15px"
-    //   w={['100%', '100%', 'min-content']}
-    //   border="1px"
-    //   borderColor="gray.200"
-    // >
     <>
-      <Box w="150px" h="auto" pos={{ md: 'fixed' }} top='0' display={{ md: 'none' }}>
+      <Box
+        w="150px"
+        h="auto"
+        pos={{ md: "fixed" }}
+        top="0"
+        display={{ md: "none" }}
+      >
         <Link href="/">
           <a>
             <Image src={nadiaRamirez} alt="na-logo" />
           </a>
         </Link>
       </Box>
+      {isMD && <LanColor />}
       <HamburgerIcon
-        display={{ md: 'none' }}
+        display={{ md: "none" }}
         boxSize="1.5em"
         color="blackAlpha.700"
         ref={btnRef}
@@ -73,18 +66,7 @@ const Navbar: NextComponentType = () => {
         <DrawerOverlay />
         <DrawerContent bgColor="gray.700" opacity="90%">
           <DrawerCloseButton color="whiteAlpha.800" />
-          {/* <DrawerHeader>
-            <Image src={nadiaRamirez} alt="nadiaRamirez-logo" />
-          </DrawerHeader> */}
-          <HStack color="whiteAlpha.800" spacing="20px" width='fit-content' m='10px 15px'>
-            <HStack>
-              <Text>EN</Text>
-              <Text>|</Text>
-              <Text>ES</Text>
-            </HStack>
-            <MoonIcon boxSize="1.5em"/>
-          </HStack>
-
+          <LanColor />
           <DrawerBody>
             <Stack direction="column" justify="center" h="100%">
               <Link href="/illustration">
@@ -139,22 +121,7 @@ const Navbar: NextComponentType = () => {
           </DrawerBody>
         </DrawerContent>
       </Drawer>
-      {/* <Stack direction={["row", "row", "column"]} mt="10px">
-        <Link href="/illustration">
-          <a style={{ textAlign: "right" }}>illustration</a>
-        </Link>
-        <Link href="/patterns">
-          <a style={{ textAlign: "right" }}>patterns</a>
-        </Link>
-        <Link href="/about">
-          <a style={{ textAlign: "right" }}>about</a>
-        </Link>
-        <Link href="/contact">
-          <a style={{ textAlign: "right" }}>contact</a>
-        </Link>
-      </Stack> */}
     </>
-    // </Flex>
   );
 };
 
