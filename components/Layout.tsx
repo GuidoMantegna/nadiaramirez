@@ -1,52 +1,58 @@
 import { NextComponentType } from "next";
-import { Container, Flex, Center, Box, useMediaQuery } from "@chakra-ui/react";
+import {
+  Container,
+  Flex,
+  Center,
+  Box,
+  useMediaQuery,
+  extendTheme,
+} from "@chakra-ui/react";
+import { createBreakpoints } from "@chakra-ui/theme-tools";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { useEffect } from "react";
+import Sidebar from "./Sidebar";
 
 const Layout: NextComponentType = ({ children }) => {
   const [isMobile] = useMediaQuery(["(max-width: 768px)"]);
 
-  useEffect(() => {
-    console.log(isMobile);
-  });
   return (
-    <Container maxW="container.lg">
-      <Flex
-        minHeight="90vh"
-        align="center"
-        direction={isMobile ? "column" : "row"}
-      >
+    <Container maxW="container.xl">
+      <Flex minHeight="90vh" direction={{ base: "column", md: "row" }}>
         <Flex
-          align="flex-end"
-          flexDirection="column"
+          pos={{ base: "fixed" }}
+          left={{ base: "0px" }}
+          zIndex={1}
+          justify="space-between"
+          align="center"
           w="100%"
-          minH="15vh"
-          p="10px"
+          minH={{ base: "10vh" }}
+          p="0 15px"
           flex="1"
-          // border="1px"
-          // borderColor="gray.200"
+          bgColor="white"
         >
           <Navbar />
         </Flex>
+        <Flex
+          flex="1"
+          display={{ base: "none", md: "flex" }}
+          justify="center"
+          mt={{ lg: "10vh" }}
+        >
+          <Sidebar />
+        </Flex>
         <Center
-          height="100%"
-          flex="3"
-          // border="1px"
-          // borderColor="gray.200"
-          p="25px"
+          mt={{ base: "10vh" }}
+          flex={{ base: "2", lg: "3" }}
+          p="0 15px"
+          flexDirection="column"
         >
           {children}
+          <Flex h="10vh" w="100%">
+            <Footer />
+          </Flex>
         </Center>
       </Flex>
-      <Container
-        maxW="container.xl"
-        height="10vh"
-        // border="1px"
-        // borderColor="gray.200"
-      >
-        <Footer />
-      </Container>
     </Container>
   );
 };

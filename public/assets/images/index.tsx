@@ -17,7 +17,7 @@ import Zebrita from "./Ilustraciones/Zebrita.jpg";
 import PajaroAmarillo from "./Ilustraciones/PajaroAmarillo.jpg";
 
 type ImagesType = {
-  src: any;
+  src: StaticImageData;
   id: number;
   alt: string;
 };
