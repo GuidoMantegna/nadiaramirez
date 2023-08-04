@@ -1,5 +1,5 @@
-import type { NextComponentType } from "next";
-import { useRef } from "react";
+import type { NextComponentType } from "next"
+import { useRef } from "react"
 import {
   Center,
   Container,
@@ -20,21 +20,34 @@ import {
   DrawerCloseButton,
   useMediaQuery,
   useDisclosure,
-} from "@chakra-ui/react";
-import { HamburgerIcon } from "@chakra-ui/icons";
-import Image from "next/image";
-import Link from "next/link";
-import nadiaRamirez from "../public/assets/nadia-ramirez-negro.png";
-import LanColor from "./LanColor";
+} from "@chakra-ui/react"
+import { HamburgerIcon } from "@chakra-ui/icons"
+import Image from "next/image"
+import Link from "next/link"
+import nadiaRamirez from "../public/assets/nadia-ramirez-negro.png"
+import LanColor from "./LanColor"
 
 const Navbar: NextComponentType = () => {
-  const [isMD] = useMediaQuery(["(min-width: 768px)"]);
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const btnRef = useRef(null);
+  const [isMD] = useMediaQuery(["(min-width: 768px)"])
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const btnRef = useRef(null)
 
   return (
     <>
-      <Box
+      <HStack
+        position="fixed"
+        w="100%"
+        h="75px"
+        justifyContent="flex-end"
+        padding={8}
+        gap={8}
+      >
+        <Link href="#ui">UI</Link>
+        <Link href="#illustration">ILLUSTRATION</Link>
+        <Link href="#patterns">PATTERNS</Link>
+        <Link href="#contact">CONTACT</Link>
+      </HStack>
+      {/* <Box
         w="150px"
         h="auto"
         pos={{ md: "fixed" }}
@@ -120,9 +133,9 @@ const Navbar: NextComponentType = () => {
             </Stack>
           </DrawerBody>
         </DrawerContent>
-      </Drawer>
+      </Drawer> */}
     </>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar
