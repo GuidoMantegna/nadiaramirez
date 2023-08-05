@@ -32,8 +32,7 @@ interface NavbarProps {
   isScrollingUp: boolean
 }
 
-
-const Navbar: NextPage<NavbarProps> = ({isScrollingUp}) => {
+const Navbar: NextPage<NavbarProps> = ({ isScrollingUp }) => {
   const [isMD] = useMediaQuery(["(min-width: 768px)"])
   const { isOpen, onOpen, onClose } = useDisclosure()
   const btnRef = useRef(null)
@@ -49,10 +48,18 @@ const Navbar: NextPage<NavbarProps> = ({isScrollingUp}) => {
         gap={8}
         className={`${styles.main} ${!isScrollingUp && styles.hide}`}
       >
-        <Link href="#ui">UI</Link>
-        <Link href="#illustration">ILLUSTRATION</Link>
-        <Link href="#patterns">PATTERNS</Link>
-        <Link href="#contact">CONTACT</Link>
+        <Link href="#ui">
+          <label className={styles.link}>UI</label>
+        </Link>
+        <Link href="#illustration">
+          <label className={styles.link}>ILLUSTRATION</label>
+        </Link>
+        <Link href="#patterns">
+          <label className={styles.link}>PATTERNS</label>
+        </Link>
+        <Link href="#contact">
+          <label className={styles.link}>CONTACT</label>
+        </Link>
       </HStack>
       {/* <Box
         w="150px"
