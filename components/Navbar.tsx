@@ -1,4 +1,4 @@
-import type { NextComponentType } from "next"
+import type { NextComponentType, NextPage } from "next"
 import { useRef } from "react"
 import {
   Center,
@@ -26,8 +26,14 @@ import Image from "next/image"
 import Link from "next/link"
 import nadiaRamirez from "../public/assets/nadia-ramirez-negro.png"
 import LanColor from "./LanColor"
+import styles from "../styles/navbar.module.scss"
 
-const Navbar: NextComponentType = () => {
+interface NavbarProps {
+  isScrollingUp: boolean
+}
+
+
+const Navbar: NextPage<NavbarProps> = ({isScrollingUp}) => {
   const [isMD] = useMediaQuery(["(min-width: 768px)"])
   const { isOpen, onOpen, onClose } = useDisclosure()
   const btnRef = useRef(null)
@@ -41,6 +47,7 @@ const Navbar: NextComponentType = () => {
         justifyContent="flex-end"
         padding={8}
         gap={8}
+        className={`${styles.main} ${!isScrollingUp && styles.hide}`}
       >
         <Link href="#ui">UI</Link>
         <Link href="#illustration">ILLUSTRATION</Link>
